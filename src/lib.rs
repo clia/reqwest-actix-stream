@@ -19,7 +19,7 @@ use actix_http::error::PayloadError;
 ///     body: actix_web::web::Payload,
 /// ) {
 ///     let mut builder = client.get(url);
-///     builder = builder.body(reqwest::Body::wrap_stream(reqwest-actix-stream::PayloadStream {
+///     builder = builder.body(reqwest::Body::wrap_stream(reqwest_actix_stream::PayloadStream {
 ///         payload: body,
 ///     }));
 ///     builder.send().await;
@@ -70,7 +70,7 @@ impl Stream for PayloadStream {
 /// let stream = res.bytes_stream();
 /// let mut resp = HttpResponse::build(res.status());
 /// // 这种方式默认会使用 chunked 传输方式
-/// return Ok(resp.streaming(reqwest-actix-stream::ResponseStream{ stream: stream }));
+/// return Ok(resp.streaming(reqwest_actix_stream::ResponseStream{ stream: stream }));
 /// ```
 pub struct ResponseStream<T> where T: Stream<Item = reqwest::Result<web::Bytes>> + Unpin {
     // stream: Box<dyn Stream<Item = reqwest::Result<web::Bytes>>>,
