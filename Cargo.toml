@@ -4,6 +4,10 @@ version = "1.0.0"
 authors = ["clia <clia@163.com>"]
 edition = "2018"
 
+[lib]
+name = "reqwest_actix_stream"
+crate-type = ["rlib"]
+
 [dependencies]
 actix-web = "3"
 futures = "0.3"
